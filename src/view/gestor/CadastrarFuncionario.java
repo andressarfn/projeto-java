@@ -17,6 +17,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
+
+import view.Gestor;
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
@@ -49,7 +52,7 @@ public class CadastrarFuncionario extends JFrame {
 	//tela de cadastro
 	public CadastrarFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 730);
+		setBounds(100, 100, 700, 725);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Cadastrar Funcion\u00E1rio", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -124,7 +127,7 @@ public class CadastrarFuncionario extends JFrame {
 		
 		//botão enviar
 		JButton botaoEnviar = new JButton("Enviar");
-		botaoEnviar.setBounds(169, 594, 365, 25);
+		botaoEnviar.setBounds(169, 591, 365, 25);
 		botaoEnviar.setFont(new Font("Gadugi", Font.BOLD, 13));
 		botaoEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -150,5 +153,16 @@ public class CadastrarFuncionario extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(169, 509, 365, 25);
 		contentPane.add(passwordField);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Gestor().setVisible(true);
+				dispose();
+			}
+		});
+		btnVoltar.setFont(new Font("Gadugi", Font.BOLD, 13));
+		btnVoltar.setBounds(169, 627, 365, 23);
+		contentPane.add(btnVoltar);
 	}
 }

@@ -106,7 +106,7 @@ public class CriarTrabalho extends JFrame {
 		
 		//botão enviar
 		JButton botaoEnviar = new JButton("Enviar");
-		botaoEnviar.setBounds(169, 431, 365, 25);
+		botaoEnviar.setBounds(169, 381, 365, 25);
 		botaoEnviar.setFont(new Font("Gadugi", Font.BOLD, 13));
 		botaoEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -127,7 +127,7 @@ public class CriarTrabalho extends JFrame {
 			}
 		});
 		botaoVoltar.setFont(new Font("Gadugi", Font.BOLD, 13));
-		botaoVoltar.setBounds(169, 467, 365, 25);
+		botaoVoltar.setBounds(169, 417, 365, 25);
 		contentPane.add(botaoVoltar);
 	}
 }

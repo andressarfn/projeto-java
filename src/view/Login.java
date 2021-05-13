@@ -52,7 +52,7 @@ public class Login extends JFrame {
 	public Login() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 730);
+		setBounds(100, 100, 700, 726);
 		contentLogin = new JPanel();
 		contentLogin.setBackground(Color.WHITE);
 		contentLogin.setBorder(new TitledBorder(null, "Entrar", TitledBorder.LEADING, TitledBorder.TOP, null, null));

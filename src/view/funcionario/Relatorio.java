@@ -52,13 +52,14 @@ public class Relatorio extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Relat\u00F3rio", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 217, 664, 403);
+		panel.setBounds(10, 176, 664, 444);
 		contentPane.add(panel);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(10, 14, 664, 192);
+		panel_1.setBounds(10, 14, 664, 150);
 		contentPane.add(panel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -72,7 +73,7 @@ public class Relatorio extends JFrame {
 				dispose();
 			}
 		});
-		botaoVoltar.setBounds(585, 631, 89, 23);
+		botaoVoltar.setBounds(581, 632, 89, 23);
 		contentPane.add(botaoVoltar);
 	}
 }

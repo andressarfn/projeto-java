@@ -18,6 +18,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
+
+import view.voluntario.Doar;
+import view.voluntario.Eventos;
+import view.voluntario.Trabalhos;
+
 import javax.swing.ImageIcon;
 
 public class Voluntario extends JFrame {
@@ -56,7 +61,7 @@ public class Voluntario extends JFrame {
 		comboBoxVoluntario.setBackground(Color.WHITE);
 		comboBoxVoluntario.setToolTipText("");
 		comboBoxVoluntario.setFont(new Font("Gadugi", Font.BOLD, 13));
-		comboBoxVoluntario.setModel(new DefaultComboBoxModel(new String[] {"", "Buscar eventos", "Trabalho disponiveis ", "Doar"}));
+		comboBoxVoluntario.setModel(new DefaultComboBoxModel(new String[] {"", "Buscar eventos", "Trabalhos disponiveis", "Doar"}));
 		comboBoxVoluntario.setBounds(171, 288, 365, 25);
 		contentVoluntario.add(comboBoxVoluntario);
 		
@@ -67,18 +72,40 @@ public class Voluntario extends JFrame {
 		contentVoluntario.add(lblVoluntario);
 		
 		//botão ok
-		JButton botaoOK = new JButton("Ok");
-		botaoOK.setBounds(171, 374, 365, 25);
-		contentVoluntario.add(botaoOK);
-		
-		//botão cancelar
-		JButton botaoCancelar = new JButton("Cancelar");
-		botaoCancelar.addActionListener(new ActionListener() {
+		JButton botaoAvancar = new JButton("Avan\u00E7ar");
+		botaoAvancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//BUSCAR EVENTOS
+				if(comboBoxVoluntario.getSelectedItem().equals("Buscar eventos")) {
+					new Eventos().setVisible(true);
+					dispose();
+				}
+				//TRABALHOS DISPONÍVEIS
+				if(comboBoxVoluntario.getSelectedItem().equals("Trabalhos disponiveis")) {
+					new Trabalhos().setVisible(true);
+					dispose();
+				}
+				//DOAR
+				if(comboBoxVoluntario.getSelectedItem().equals("Doar")) {
+					new Doar().setVisible(true);
+					dispose();
+				}
+				
 			}
 		});
-		botaoCancelar.setBounds(171, 410, 365, 25);
-		contentVoluntario.add(botaoCancelar);
+		botaoAvancar.setBounds(171, 374, 365, 25);
+		contentVoluntario.add(botaoAvancar);
+		
+		//botão cancelar
+		JButton botaoSair = new JButton("Sair");
+		botaoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Login().setVisible(true);
+				dispose();
+			}
+		});
+		botaoSair.setBounds(171, 410, 365, 25);
+		contentVoluntario.add(botaoSair);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));

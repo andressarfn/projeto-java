@@ -52,13 +52,14 @@ public class Doacoes extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		panel.setBorder(new TitledBorder(null, "Doa\u00E7\u00F5es", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(10, 217, 664, 403);
+		panel.setBounds(10, 173, 664, 447);
 		contentPane.add(panel);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(10, 14, 664, 192);
+		panel_1.setBounds(10, 14, 664, 146);
 		contentPane.add(panel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -72,7 +73,7 @@ public class Doacoes extends JFrame {
 				dispose();
 			}
 		});
-		botaoVoltar.setBounds(585, 631, 89, 23);
+		botaoVoltar.setBounds(580, 631, 89, 23);
 		contentPane.add(botaoVoltar);
 	}
 }

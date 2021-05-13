@@ -1,4 +1,4 @@
-package view;
+package view.funcionario;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -17,11 +17,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
+
+import view.Funcionario;
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 
-public class Cadastrar extends JFrame {
+public class CadastrarVoluntario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField campoNome;
@@ -37,7 +40,7 @@ public class Cadastrar extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cadastrar frame = new Cadastrar();
+					CadastrarVoluntario frame = new CadastrarVoluntario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,17 +50,17 @@ public class Cadastrar extends JFrame {
 	}
 
 	//tela de cadastro
-	public Cadastrar() {
+	public CadastrarVoluntario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 730);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Cadastrar", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Cadastrar Volunt\u00E1rio", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		// texto nome
-		JLabel lblNome = new JLabel("Nome Completo");
+		JLabel lblNome = new JLabel("Nome completo");
 		lblNome.setBounds(169, 176, 101, 14);
 		lblNome.setFont(new Font("Gadugi", Font.BOLD, 13));
 		contentPane.add(lblNome);
@@ -124,25 +127,13 @@ public class Cadastrar extends JFrame {
 		
 		//botão enviar
 		JButton botaoEnviar = new JButton("Enviar");
-		botaoEnviar.setBounds(169, 625, 365, 25);
+		botaoEnviar.setBounds(169, 581, 365, 25);
 		botaoEnviar.setFont(new Font("Gadugi", Font.BOLD, 13));
 		botaoEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		contentPane.add(botaoEnviar);
-		
-		//texto de opções de cadastro
-		JLabel lblOpcoes = new JLabel("Escolha uma op\u00E7\u00E3o de cadastro");
-		lblOpcoes.setBounds(169, 545, 201, 14);
-		lblOpcoes.setFont(new Font("Gadugi", Font.BOLD, 13));
-		contentPane.add(lblOpcoes);
-		
-		//comboBox das opções de cadastro
-		JComboBox comboBoxOpcao = new JComboBox();
-		comboBoxOpcao.setBounds(169, 570, 365, 25);
-		comboBoxOpcao.setModel(new DefaultComboBoxModel(new String[] {"", "Funcion\u00E1rio", "Volunt\u00E1rio"}));
-		contentPane.add(comboBoxOpcao);
 		
 		JLabel lblTelefone = new JLabel("Telefone");
 		lblTelefone.setBounds(169, 362, 72, 14);
@@ -162,5 +153,16 @@ public class Cadastrar extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(169, 509, 365, 25);
 		contentPane.add(passwordField);
+		
+		JButton botaoVoltar = new JButton("Voltar");
+		botaoVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new Funcionario().setVisible(true);
+			}
+		});
+		botaoVoltar.setFont(new Font("Gadugi", Font.BOLD, 13));
+		botaoVoltar.setBounds(169, 617, 365, 25);
+		contentPane.add(botaoVoltar);
 	}
 }

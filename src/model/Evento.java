@@ -7,23 +7,21 @@ public class Evento {
 	private String nome;
 	private Date data;
 	private String local;
-	private Date horario;
+	private Date hora;
 	private int duracao;
 	private double custos;
-	private Voluntario voluntario;
 	private Funcionario responsavel;
 	private boolean parceria;
 	
-	public Evento(String nomeC, Date dataC, String localC, Date horarioC, int duracaoC, double custosC, Voluntario voluntarioC,
+	public Evento(String nomeC, Date dataC, String localC, Date horaC, int duracaoC, double custosC,
 			Funcionario responsavelC, boolean parceriaC) {
 		
 		this.nome = nomeC;
 		this.data = dataC;
 		this.local = localC;
-		this.horario = horarioC;
+		this.hora = horaC;
 		this.duracao = duracaoC;
 		this.custos = custosC;
-		this.voluntario = voluntarioC;
 		this.responsavel = responsavelC;
 		this.parceria = parceriaC;
 	}
@@ -52,10 +50,10 @@ public class Evento {
 	}
 	
 	public Date getHorario() {
-		return horario;
+		return hora;
 	}
 	public void setHorario(Date horario) {
-		this.horario = horario;
+		this.hora = horario;
 	}
 	
 	public int getDuracao() {
@@ -70,13 +68,6 @@ public class Evento {
 	}
 	public void setCustos(double custos) {
 		this.custos = custos;
-	}
-	
-	public Voluntario getVoluntario() {
-		return voluntario;
-	}
-	public void setVoluntario(Voluntario voluntario) {
-		this.voluntario = voluntario;
 	}
 	
 	public Funcionario getResponsavel() {
@@ -101,7 +92,6 @@ public class Evento {
 				"\nHorario = " + getHorario() + 
 				"\nDuracao = " + getDuracao() + 
 				"\ngetCustos = " + getCustos() +
-				"\nVoluntário = " + getVoluntario() + 
 				"\nResponsável = " + getResponsavel() + 
 				"\nParceria = " + isParceria();
 	}

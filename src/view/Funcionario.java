@@ -15,6 +15,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
+
+import view.funcionario.CadastrarVoluntario;
+import view.funcionario.CriarEvento;
+import view.funcionario.CriarTrabalho;
+import view.funcionario.Doacoes;
+import view.funcionario.Relatorio;
+
 import javax.swing.ImageIcon;
 
 public class Funcionario extends JFrame {
@@ -50,25 +57,57 @@ public class Funcionario extends JFrame {
 		//comboBox do funcionário
 		JComboBox comboBoxFuncionario = new JComboBox();
 		comboBoxFuncionario.setFont(new Font("Gadugi", Font.BOLD, 13));
-		comboBoxFuncionario.setModel(new DefaultComboBoxModel(new String[] {"", "Doa\u00E7\u00F5es", "Gerenciar entrega", "Importar dados", "Gerar relat\u00F3rio", "Cadastrar volunt\u00E1rios", "Cadastrar eventos", "Cadastrar trabalhos"}));
+		comboBoxFuncionario.setModel(new DefaultComboBoxModel(new String[] {"", "Cadastrar volunt\u00E1rio", "Criar evento", "Criar trabalho", "Doa\u00E7\u00F5es", "Gerar relat\u00F3rio"}));
 		comboBoxFuncionario.setBounds(171, 288, 365, 25);
 		contentPane.add(comboBoxFuncionario);
 		
 		//botão ok
-		JButton botaoOk = new JButton("Ok");
-		botaoOk.setFont(new Font("Gadugi", Font.PLAIN, 13));
-		botaoOk.addActionListener(new ActionListener() {
+		JButton botaoAvancar = new JButton("Avan\u00E7ar");
+		botaoAvancar.setFont(new Font("Gadugi", Font.BOLD, 13));
+		botaoAvancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if (comboBoxFuncionario.getSelectedItem().equals("Cadastrar voluntário")) {
+					new CadastrarVoluntario().setVisible(true);
+					dispose();
+				}
+				
+				if (comboBoxFuncionario.getSelectedItem().equals("Criar evento")) {
+					new CriarEvento().setVisible(true);
+					dispose();
+				}
+				
+				if (comboBoxFuncionario.getSelectedItem().equals("Criar trabalho")) {
+					new CriarTrabalho().setVisible(true);
+					dispose();
+				}
+				
+				if (comboBoxFuncionario.getSelectedItem().equals("Doações")) {
+					new Doacoes().setVisible(true);
+					dispose();
+				}
+				
+				if (comboBoxFuncionario.getSelectedItem().equals("Gerar relatório")) {
+					new Relatorio().setVisible(true);
+					dispose();
+				}
+				
 			}
 		});
-		botaoOk.setBounds(171, 374, 365, 25);
-		contentPane.add(botaoOk);
+		botaoAvancar.setBounds(171, 374, 365, 25);
+		contentPane.add(botaoAvancar);
 		
 		//botão cancelar
-		JButton botaoCancelar = new JButton("Cancelar");
-		botaoCancelar.setFont(new Font("Gadugi", Font.PLAIN, 13));
-		botaoCancelar.setBounds(171, 410, 365, 25);
-		contentPane.add(botaoCancelar);
+		JButton botaoSair = new JButton("Sair");
+		botaoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Login().setVisible(true);
+				dispose();
+			}
+		});
+		botaoSair.setFont(new Font("Gadugi", Font.BOLD, 13));
+		botaoSair.setBounds(171, 410, 365, 25);
+		contentPane.add(botaoSair);
 		
 		JLabel lblNewLabel = new JLabel("Escolha uma das op\u00E7\u00F5es");
 		lblNewLabel.setFont(new Font("Gadugi", Font.BOLD, 13));

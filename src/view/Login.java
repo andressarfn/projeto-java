@@ -127,18 +127,21 @@ public class Login extends JFrame {
 							if(chckbxGestor.isSelected()) {
 								JOptionPane.showMessageDialog(null, "Bem vindo(a)");
 								new Gestor().setVisible(true);
+								dispose();
 							}
 							
 							//TELA FUNCIONÁRIO
 							if(chckbxFuncionario.isSelected()) {
 								JOptionPane.showMessageDialog(null, "Bem vindo(a)");
 								new Funcionario().setVisible(true);
+								dispose();
 							}
 							
 							//TELA VOLUNTÁRIO
 							if(chckbxVoluntario.isSelected()) {
 								JOptionPane.showMessageDialog(null, "Bem vindo(a)");
 								new Voluntario().setVisible(true);
+								dispose();
 							}
 							
 							//CHECKBOX VAZIO

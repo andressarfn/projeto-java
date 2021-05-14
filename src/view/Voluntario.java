@@ -108,7 +108,7 @@ public class Voluntario extends JFrame {
 		contentVoluntario.add(botaoSair);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lblNewLabel.setIcon(new ImageIcon("logos\\70x70.png"));
 		lblNewLabel.setBounds(261, 70, 200, 151);
 		contentVoluntario.add(lblNewLabel);
 	}

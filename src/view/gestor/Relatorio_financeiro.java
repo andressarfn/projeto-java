@@ -55,7 +55,7 @@ public class Relatorio_financeiro extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel lbLogo = new JLabel("");
-		lbLogo.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lbLogo.setIcon(new ImageIcon("logos\\70x70.png"));
 		panel.add(lbLogo);
 		
 		JPanel panel_1 = new JPanel();

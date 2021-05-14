@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import view.gestor.CadastrarFuncionario;
 import view.gestor.Despesas;
+import view.gestor.MostrarFuncionarios;
 import view.gestor.Receitas;
 import view.gestor.Relatorio_financeiro;
 
@@ -62,7 +63,7 @@ public class Gestor extends JFrame {
 		//combobox do gestor
 		JComboBox comboBoxGestor = new JComboBox();
 		comboBoxGestor.setFont(new Font("Gadugi", Font.BOLD, 13));
-		comboBoxGestor.setModel(new DefaultComboBoxModel(new String[] {"", "Cadastrar funcionário", "Analisar receitas", "Analisar despesas", "Gerar relatório financeiro"}));
+		comboBoxGestor.setModel(new DefaultComboBoxModel(new String[] {"", "Cadastrar funcion\u00E1rio", "Mostrar funcion\u00E1rios", "Analisar receitas", "Analisar despesas", "Gerar relat\u00F3rio financeiro"}));
 		comboBoxGestor.setBounds(171, 288, 365, 25);
 		contentPane.add(comboBoxGestor);
 		
@@ -74,6 +75,11 @@ public class Gestor extends JFrame {
 				//CADASTRAR FUNCIONÁRIO
 				if(comboBoxGestor.getSelectedItem().equals("Cadastrar funcionário")) {
 					new CadastrarFuncionario().setVisible(true);
+					dispose();
+				}
+				//MOSTRAR FUNCIONÁRIOS
+				if(comboBoxGestor.getSelectedItem().equals("Mostrar funcionários")) {
+					new MostrarFuncionarios().setVisible(true);
 					dispose();
 				}
 				//ANALISAR RECEITAS
@@ -99,11 +105,17 @@ public class Gestor extends JFrame {
 		
 		//botão cancelar
 		JButton botaoSair = new JButton("Sair");
+		botaoSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Login().setVisible(true);
+				dispose();
+			}
+		});
 		botaoSair.setBounds(171, 410, 365, 25);
 		contentPane.add(botaoSair);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("logos\\70x70.png"));
 		lblNewLabel_1.setBounds(261, 70, 200, 151);
 		contentPane.add(lblNewLabel_1);
 	}

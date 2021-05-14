@@ -162,7 +162,7 @@ public class Login extends JFrame {
 				contentLogin.add(botaoEntrar);
 				
 				JLabel lblNewLabel = new JLabel("");
-				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\todo-70x70.png"));
+				lblNewLabel.setIcon(new ImageIcon("logos\\todo-70x70.png"));
 				lblNewLabel.setBounds(230, 70, 200, 228);
 				contentLogin.add(lblNewLabel);
 	}

@@ -61,7 +61,7 @@ public class Funcionario extends JFrame {
 		comboBoxFuncionario.setBounds(171, 288, 365, 25);
 		contentPane.add(comboBoxFuncionario);
 		
-		//botão ok
+		//botão avançar
 		JButton botaoAvancar = new JButton("Avan\u00E7ar");
 		botaoAvancar.setFont(new Font("Gadugi", Font.BOLD, 13));
 		botaoAvancar.addActionListener(new ActionListener() {
@@ -115,7 +115,7 @@ public class Funcionario extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("logos\\70x70.png"));
 		lblNewLabel_1.setBounds(261, 70, 200, 151);
 		contentPane.add(lblNewLabel_1);
 	}

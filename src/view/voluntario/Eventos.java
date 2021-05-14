@@ -59,7 +59,7 @@ public class Eventos extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lblLogo.setIcon(new ImageIcon("logos\\70x70.png"));
 		panel.add(lblLogo);
 		
 		JPanel panel_1 = new JPanel();

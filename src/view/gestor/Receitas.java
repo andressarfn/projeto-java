@@ -67,7 +67,7 @@ public class Receitas extends JFrame {
 		contentPane.add(panel_1);
 		
 		JLabel lbLogo = new JLabel("");
-		lbLogo.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lbLogo.setIcon(new ImageIcon("logos\\70x70.png"));
 		panel_1.add(lbLogo);
 		
 		JButton btnNewButton = new JButton("Voltar");

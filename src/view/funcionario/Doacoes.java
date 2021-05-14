@@ -64,7 +64,7 @@ public class Doacoes extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		panel_1.add(lblNewLabel);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lblNewLabel.setIcon(new ImageIcon("logos\\70x70.png"));
 		
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() {

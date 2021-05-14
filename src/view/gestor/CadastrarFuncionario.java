@@ -146,7 +146,7 @@ public class CadastrarFuncionario extends JFrame {
 		contentPane.add(campoTelefone);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\andre\\eclipse-workspace\\projeto_java\\logos\\70x70.png"));
+		lblNewLabel.setIcon(new ImageIcon("logos\\70x70.png"));
 		lblNewLabel.setBounds(254, 14, 200, 151);
 		contentPane.add(lblNewLabel);
 		

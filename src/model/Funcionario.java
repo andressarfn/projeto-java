@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Funcionario {
 	
 	private String nome;
@@ -9,6 +11,7 @@ public class Funcionario {
 	private String telefone;
 	private String email;
 	private String senha;
+	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	
 	public Funcionario (String nomeC, String rgC, String cpfC, String enderecoC, String telefoneC, String emailC, String senhaC) {
 		this.nome = nomeC;
@@ -77,14 +80,50 @@ public class Funcionario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	public String toString() {
-		return "Nome = " + getNome() + 
-				"\nRG = "+ getRg() + 
-				"\nCPF = " + getCpf() + 
-				"\nEndereço = "+ getEndereco()+
-				"\nTelefone = "+ getTelefone()+
-				"\nE-mail = " + getEmail();
+	
+	public ArrayList<Funcionario> getFuncionarios(){
+		return this.funcionarios;
 	}
+	public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+	
+	
+	//AJUSTADO - 18/05
+	public String toString() {
+		return "\n\t               FUNCIONÁRIO                   " +
+				"\n\tNome: " + getNome() + 
+				"\n\tRG: "+ getRg() + 
+				"\n\tCPF: " + getCpf() + 
+				"\n\tEndereço: "+ getEndereco()+
+				"\n\tTelefone: "+ getTelefone()+
+				"\n\tE-mail: " + getEmail()+
+				"\n";
+	}
+	
+	//CADASTRAR FUNCIONÁRIO - ANDRÉ 21/05
+	public ArrayList<Funcionario> cadastrarFuncionario(Funcionario funcionario){
+		this.funcionarios.add(funcionario);
+		
+		return this.funcionarios;
+	}
+	
+	//REMOVER FUNCIONÁRIO - ANDRESSA 03/06
+	public boolean removerFuncionario(Funcionario funcionario) {
+		boolean situacao  = false;
+		
+		for(int i = 0; i < this.funcionarios.size(); i++) {
+			
+			if(funcionarios.get(i).equals(funcionario)) {
+				funcionarios.remove(i);
+				situacao = true;
+				break;
+			}
+			
+		}
+		
+		return situacao;
+	}
+	
 }
 

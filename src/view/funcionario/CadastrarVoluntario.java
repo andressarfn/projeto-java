@@ -1,28 +1,24 @@
 package view.funcionario;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.border.TitledBorder;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
 
-import view.Funcionario;
-
-import javax.swing.border.EtchedBorder;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.text.MaskFormatter;
 
 public class CadastrarVoluntario extends JFrame {
 
@@ -33,14 +29,15 @@ public class CadastrarVoluntario extends JFrame {
 	private JTextField campoRG;
 	private JTextField campoEndereco;
 	private JTextField campoTelefone;
-	private JPasswordField passwordField;
-
+	private JPasswordField campoSenha;
+	private JTextField campoDiaDisponivel;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					CadastrarVoluntario frame = new CadastrarVoluntario();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -97,72 +94,151 @@ public class CadastrarVoluntario extends JFrame {
 		
 		//input do nome
 		campoNome = new JTextField();
+		campoNome.setFont(new Font("Gadugi", Font.PLAIN, 13));
 		campoNome.setBounds(169, 201, 365, 25);
 		contentPane.add(campoNome);
 		campoNome.setColumns(10);
 		
 		//input do cpf ou cnpj
-		campoCpfCnpj = new JTextField();
+		try {
+			campoCpfCnpj = new JFormattedTextField(new MaskFormatter("###.###.###-##"));
+		} catch (java.text.ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		campoCpfCnpj.setFont(new Font("Gadugi", Font.PLAIN, 13));
 		campoCpfCnpj.setBounds(169, 262, 175, 25);
 		campoCpfCnpj.setColumns(10);
 		contentPane.add(campoCpfCnpj);
 		
 		//input RG
-		campoRG = new JTextField();
+		try {
+			campoRG = new JFormattedTextField(new MaskFormatter("#.###.###"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		campoRG.setFont(new Font("Gadugi", Font.PLAIN, 13));
 		campoRG.setBounds(367, 262, 167, 25);
 		campoRG.setColumns(10);
 		contentPane.add(campoRG);
 		
 		//input do email
 		campoEmail = new JTextField();
+		campoEmail.setFont(new Font("Gadugi", Font.PLAIN, 13));
 		campoEmail.setBounds(169, 448, 365, 25);
 		campoEmail.setColumns(10);
 		contentPane.add(campoEmail);
 		
 		//input do endereço
 		campoEndereco = new JTextField();
+		campoEndereco.setFont(new Font("Gadugi", Font.PLAIN, 13));
 		campoEndereco.setBounds(169, 326, 365, 25);
 		contentPane.add(campoEndereco);
 		campoEndereco.setColumns(10);
 		
+		//DATA DISPONÍVEL
+		try {
+			campoDiaDisponivel = new JFormattedTextField(new MaskFormatter("##/##/####"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		campoDiaDisponivel.setBounds(367, 387, 167, 25);
+		contentPane.add(campoDiaDisponivel);
+		campoDiaDisponivel.setColumns(10);
+		
+		//TELEFONE
+		try {
+			campoTelefone = new JFormattedTextField(new MaskFormatter("(##)#####-####"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		campoTelefone.setFont(new Font("Gadugi", Font.PLAIN, 13));
+		campoTelefone.setBounds(169, 387, 175, 25);
+		campoTelefone.setColumns(10);
+		contentPane.add(campoTelefone);
+		
+		//SENHA
+		campoSenha = new JPasswordField();
+		campoSenha.setFont(new Font("Gadugi", Font.PLAIN, 13));
+		campoSenha.setBounds(169, 509, 365, 25);
+		contentPane.add(campoSenha);
+		
 		//botão enviar
-		JButton botaoEnviar = new JButton("Enviar");
-		botaoEnviar.setBounds(169, 581, 365, 25);
-		botaoEnviar.setFont(new Font("Gadugi", Font.BOLD, 13));
-		botaoEnviar.addActionListener(new ActionListener() {
+		JButton botaoCadastrar = new JButton("Cadastrar");
+		botaoCadastrar.setBounds(169, 562, 365, 25);
+		botaoCadastrar.setFont(new Font("Gadugi", Font.BOLD, 13));
+		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//OBJETO - 17/05
+				model.Voluntario voluntario = new model.Voluntario();
+				//CAPTURAR ENTRADA DE DADOS - 17/05
+				voluntario.setNome(campoNome.getText()); voluntario.setCpfOrCnpj(campoCpfCnpj.getText());
+				voluntario.setRg(campoRG.getText()); voluntario.setEndereco(campoEndereco.getText());
+				voluntario.setTelefone(campoTelefone.getText()); voluntario.setDiaDisponivel(campoDiaDisponivel.getText());
+				voluntario.setEmail(campoEmail.getText()); voluntario.setSenha(campoSenha.getText());
+				//CADASTRAR VOLUNTÁRIO - 22/05
+				voluntario.cadastrarVoluntario(voluntario);
+				
+				JOptionPane.showMessageDialog(null, "Voluntário cadastrado!");
+				limparCampo();
 			}
 		});
-		contentPane.add(botaoEnviar);
+		contentPane.add(botaoCadastrar);
 		
 		JLabel lblTelefone = new JLabel("Telefone");
 		lblTelefone.setBounds(169, 362, 72, 14);
 		lblTelefone.setFont(new Font("Gadugi", Font.BOLD, 13));
 		contentPane.add(lblTelefone);
 		
-		campoTelefone = new JTextField();
-		campoTelefone.setBounds(169, 387, 365, 25);
-		campoTelefone.setColumns(10);
-		contentPane.add(campoTelefone);
-		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("logos\\70x70.png"));
 		lblNewLabel.setBounds(254, 14, 200, 151);
 		contentPane.add(lblNewLabel);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(169, 509, 365, 25);
-		contentPane.add(passwordField);
-		
+		//botão voltar
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				new Funcionario().setVisible(true);
+				
+				view.Funcionario frame = new view.Funcionario();
+				model.Voluntario voluntario = new model.Voluntario();
+				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
+				dispose();
 			}
 		});
 		botaoVoltar.setFont(new Font("Gadugi", Font.BOLD, 13));
-		botaoVoltar.setBounds(169, 617, 365, 25);
+		botaoVoltar.setBounds(169, 634, 365, 25);
 		contentPane.add(botaoVoltar);
+		//BOTÃO LIMPAR CAMPOS
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limparCampo();
+			}
+		});
+		btnLimpar.setFont(new Font("Gadugi", Font.BOLD, 13));
+		btnLimpar.setBounds(169, 598, 365, 25);
+		contentPane.add(btnLimpar);
+		
+		JLabel lblNewLabel_1 = new JLabel("Data de disponibilidade");
+		lblNewLabel_1.setFont(new Font("Gadugi", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(367, 363, 167, 14);
+		contentPane.add(lblNewLabel_1);
+	}
+	
+	//LIMPAR CAMPOS
+	public void limparCampo() {
+		campoNome.setText(null);
+		campoCpfCnpj.setText(null);
+		campoRG.setText(null);
+		campoEndereco.setText(null);
+		campoTelefone.setText(null);
+		campoEmail.setText(null);
+		campoSenha.setText(null);
+		campoDiaDisponivel.setText(null);
 	}
 }

@@ -1,20 +1,24 @@
 package model;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Evento {
 	
 	private String nome;
-	private Date data;
+	private String data;
 	private String local;
-	private Date hora;
-	private int duracao;
+	private String hora;
+	private String duracao;
 	private double custos;
 	private Funcionario responsavel;
-	private boolean parceria;
+	private String parceria;
+	private String objetivo;
 	
-	public Evento(String nomeC, Date dataC, String localC, Date horaC, int duracaoC, double custosC,
-			Funcionario responsavelC, boolean parceriaC) {
+	private static ArrayList<Trabalho> trabalhos = new ArrayList<Trabalho>();
+	private static ArrayList<Evento> eventos = new ArrayList<Evento>();
+	
+	public Evento(String nomeC, String dataC, String localC, String horaC, String duracaoC, double custosC,
+			Funcionario responsavelC, String parceriaC, String objetivoC) {
 		
 		this.nome = nomeC;
 		this.data = dataC;
@@ -24,6 +28,7 @@ public class Evento {
 		this.custos = custosC;
 		this.responsavel = responsavelC;
 		this.parceria = parceriaC;
+		this.objetivo = objetivoC;
 	}
 	
 	public Evento() {}
@@ -35,10 +40,10 @@ public class Evento {
 		this.nome = nome;
 	}
 	
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	
@@ -49,17 +54,17 @@ public class Evento {
 		this.local = local;
 	}
 	
-	public Date getHorario() {
+	public String getHora() {
 		return hora;
 	}
-	public void setHorario(Date horario) {
-		this.hora = horario;
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
 	
-	public int getDuracao() {
+	public String getDuracao() {
 		return duracao;
 	}
-	public void setDuracao(int duracao) {
+	public void setDuracao(String duracao) {
 		this.duracao = duracao;
 	}
 	
@@ -77,27 +82,73 @@ public class Evento {
 		this.responsavel = responsavel;
 	}
 	
-	public boolean isParceria() {
+	public String isParceria() {
 		return parceria;
 	}
-	public void setParceria(boolean parceria) {
+	public void setParceria(String parceria) {
 		this.parceria = parceria;
 	}
-
 	
-	public String toString() {
-		return "Nome = " + getNome() + 
-				"\nData = " + getData() + 
-				"\nLocal = " + getLocal() + 
-				"\nHorario = " + getHorario() + 
-				"\nDuracao = " + getDuracao() + 
-				"\ngetCustos = " + getCustos() +
-				"\nResponsável = " + getResponsavel() + 
-				"\nParceria = " + isParceria();
+	public String getObjetivo() {
+		return this.objetivo;
+	}
+	public void setObjetivo(String objetivo) {
+		this.objetivo = objetivo;
 	}
 	
+	public ArrayList<Evento> getEventos(){
+		return this.eventos;
+	}
+	public void setEvento(ArrayList<Evento> eventos) {
+		this.eventos = eventos;
+	}
 	
-	
-	
+	public ArrayList<Trabalho> getTrabalhos(){
+		return this.trabalhos;
+	}
+	public void setTrabalhos(ArrayList<Trabalho> trabalhos) {
+		this.trabalhos = trabalhos;
+	}
 
+	//AJUSTADO - 18/05
+	public String toString() {
+		return "\n\t               EVENTO                   " +
+				"\n\tNome: " + getNome() + 
+				"\n\tData: " + getData() + 
+				"\n\tLocal: " + getLocal() + 
+				"\n\tHorario: " + getHora() + 
+				"\n\tDuracao: " + getDuracao() + 
+				"\n\tCustos: "+getCustos()+
+				"\n\tResponsável: " + getResponsavel().getNome() + 
+				"\n\tParceria: " + isParceria() +
+				"\n\tObjetivo: " + getObjetivo() +
+				"\n";
+	}
+	
+	//CRIAR EVENTOS 23/05
+	public void criarEvento(Evento evento) {
+		this.eventos.add(evento);
+	}
+	
+	//REMOVER DOAÇÃO - ANDRÉ - 23/05
+	public boolean removerEvento(Evento evento) {
+		boolean situacao = false;
+		
+		for(int i = 0; i < eventos.size(); i++) {
+			
+			if(eventos.get(i).equals(evento)) {
+				eventos.remove(i);
+				situacao = true;
+				break;
+			}
+		}
+		
+		return situacao;
+	}
+	
+	//CADASTRAR TRABALHOS EM EVENTOS
+	public void incluirTrabalhosEventos(ArrayList<Trabalho> trabalhos) {
+		this.trabalhos = trabalhos;
+	}
+	
 }

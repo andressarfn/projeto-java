@@ -42,6 +42,7 @@ public class CriarTrabalho extends JFrame {
 	private JTextField campoEndereco;
 
 	private static model.Evento evento = new model.Evento();
+	private model.Funcionario funcionarioLogado = new model.Funcionario();
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,6 +56,10 @@ public class CriarTrabalho extends JFrame {
 				}
 			}
 		});
+	}
+	
+	public void pegarFuncionarioLogado(model.Funcionario funcionario) {
+		funcionarioLogado = funcionario;
 	}
 
 	//tela de cadastro
@@ -200,7 +205,8 @@ public class CriarTrabalho extends JFrame {
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Funcionario frame = new Funcionario();
+				view.Funcionario frame = new Funcionario();
+				frame.pegarFuncionarioLogado(funcionarioLogado);
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
 				dispose();
@@ -210,6 +216,7 @@ public class CriarTrabalho extends JFrame {
 		botaoVoltar.setBounds(169, 578, 365, 25);
 		contentPane.add(botaoVoltar);
 		
+		//BOTÃO LIMPAR CAMPOS
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

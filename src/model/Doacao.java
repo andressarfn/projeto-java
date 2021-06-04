@@ -117,17 +117,4 @@ public class Doacao {
 		return situacao;
 	}
 	
-	//Analisar Receita
-	public ArrayList<Doacao> receita() {
-		ArrayList<Doacao> receitas = new ArrayList<Doacao>();
-		
-		for (int i = 0; i < doacoes.size(); i++) {
-			if(this.doacoes.get(i).getValor() > 0) {
-				receitas.add(this.doacoes.get(i));
-			}
-		}
-		
-		return receitas;
-	}
-
 }

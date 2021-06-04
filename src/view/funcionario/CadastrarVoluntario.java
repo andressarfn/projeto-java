@@ -20,6 +20,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
+import model.Funcionario;
+
 public class CadastrarVoluntario extends JFrame {
 
 	private JPanel contentPane;
@@ -31,6 +33,8 @@ public class CadastrarVoluntario extends JFrame {
 	private JTextField campoTelefone;
 	private JPasswordField campoSenha;
 	private JTextField campoDiaDisponivel;
+	
+	private model.Funcionario funcionarioLogado = new model.Funcionario();
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,7 +49,11 @@ public class CadastrarVoluntario extends JFrame {
 			}
 		});
 	}
-
+	
+	public void pegarFuncionarioLogado(model.Funcionario funcionario) {
+		funcionarioLogado = funcionario;
+	}
+	
 	//tela de cadastro
 	public CadastrarVoluntario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -202,9 +210,8 @@ public class CadastrarVoluntario extends JFrame {
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				view.Funcionario frame = new view.Funcionario();
-				model.Voluntario voluntario = new model.Voluntario();
+				frame.pegarFuncionarioLogado(funcionarioLogado);
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
 				dispose();
@@ -213,6 +220,7 @@ public class CadastrarVoluntario extends JFrame {
 		botaoVoltar.setFont(new Font("Gadugi", Font.BOLD, 13));
 		botaoVoltar.setBounds(169, 634, 365, 25);
 		contentPane.add(botaoVoltar);
+		
 		//BOTÃO LIMPAR CAMPOS
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {

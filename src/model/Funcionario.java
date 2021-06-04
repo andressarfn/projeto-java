@@ -88,7 +88,6 @@ public class Funcionario {
 		this.funcionarios = funcionarios;
 	}
 	
-	
 	//AJUSTADO - 18/05
 	public String toString() {
 		return "\n\t               FUNCIONÁRIO                   " +

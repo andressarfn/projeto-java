@@ -43,7 +43,7 @@ public class CriarEvento extends JFrame {
 	private JTextField campoCusto;
 	
 	//OBJETO PARA OBTER FUNCIONARIO LOGADO
-	model.Funcionario funcionarioLogado = new model.Funcionario();
+	private model.Funcionario funcionarioLogado = new model.Funcionario();
 	private JTextField campoObjetivo;
 	
 	public static void main(String[] args) {
@@ -229,10 +229,12 @@ public class CriarEvento extends JFrame {
 		lblCusto.setBounds(367, 363, 130, 14);
 		contentPane.add(lblCusto);
 		
+		//VOLTAR
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Funcionario frame = new Funcionario();
+				view.Funcionario frame = new Funcionario();
+				frame.pegarFuncionarioLogado(funcionarioLogado);
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
 				dispose();

@@ -39,7 +39,7 @@ public class Funcionario extends JFrame {
 	private  model.Trabalho trabalho = new model.Trabalho();
 	private model.Doacao doacao = new model.Doacao();
 	//PEGAR FUNCIONARIO LOGADO
-	model.Funcionario funcionarioLogado = new model.Funcionario();
+	private model.Funcionario funcionarioLogado = new model.Funcionario();
 	//ARRAYS APENAS PARA SEREM MOSTRADOS NO TEXTAREA
 	private static ArrayList<model.Voluntario> cadastroVoluntarios = new ArrayList<model.Voluntario>();
 	private static ArrayList<model.Evento> eventos = new ArrayList<model.Evento>();
@@ -58,6 +58,11 @@ public class Funcionario extends JFrame {
 				}
 			}
 		});
+	}
+	
+	//PEGAR FUNCIONÁRIO LOGADO NO SISTEMA
+	public void pegarFuncionarioLogado(model.Funcionario loginFuncionario) {
+		funcionarioLogado = loginFuncionario;
 	}
 	
 	//TELA FUNCIONÁRIO
@@ -96,10 +101,12 @@ public class Funcionario extends JFrame {
 		botaoAvancar.setFont(new Font("Gadugi", Font.BOLD, 13));
 		botaoAvancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				//CADASTRAR VOLUNTÁRIO
 				if (comboBoxFuncionario.getSelectedItem().equals("Cadastrar voluntário")) {
 					textAreaInformacoes.setText(null);
-					CadastrarVoluntario frame = new CadastrarVoluntario();
+					view.funcionario.CadastrarVoluntario frame = new CadastrarVoluntario();
+					frame.pegarFuncionarioLogado(funcionarioLogado);
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 					dispose();
@@ -180,6 +187,7 @@ public class Funcionario extends JFrame {
 				//IR PARA TELA CRIAR TRABALHO
 				if (comboBoxFuncionario.getSelectedItem().equals("Criar trabalho")) {
 					CriarTrabalho frame = new CriarTrabalho();
+					frame.pegarFuncionarioLogado(funcionarioLogado);
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 					dispose();

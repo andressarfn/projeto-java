@@ -203,7 +203,7 @@ public class Login extends JFrame {
 							if(loginFuncionario(campoEmail.getText(), campoSenha.getText())) {
 								JOptionPane.showMessageDialog(null, "Bem vindo(a)");
 								view.Funcionario frame = new view.Funcionario();
-								frame.funcionarioLogado = funcionarioLogado;
+								frame.pegarFuncionarioLogado(funcionarioLogado);
 								frame.setLocationRelativeTo(null);
 								frame.setVisible(true);
 								dispose();

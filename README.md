@@ -14,11 +14,7 @@ Projeto desenvolvido em Java com objetivo de auxiliar a administração de ONG's
 
 ## 📌 Imagens
 
-  ![Screenshot](logos/screenShot01.png)
-  ![Screenshot](logos/screenShot02.png)
-  ![Screenshot](logos/screenShot03.png)
-  ![Screenshot](logos/screenShot04.png)
-  
+
 ## ✒️ Autores
 
 * **Andressa Ribeiro** - [desenvolvedora](https://github.com/andressarfn)
